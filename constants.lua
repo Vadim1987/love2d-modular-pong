@@ -2,29 +2,43 @@
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
 
--- Paddle settings
-PADDLE_WIDTH = 10
+-- Paddle (bat) settings
+PADDLE_WIDTH = 18
 PADDLE_HEIGHT = 60
-PADDLE_SPEED = 300         -- Vertical speed
-PADDLE_HSPEED = 200        -- Horizontal speed
+PADDLE_SPEED = 300         -- Both axes
 
--- Horizontal paddle movement limits (not beyond half field)
-BAT_MAX_X = (WINDOW_WIDTH / 2) - PADDLE_WIDTH - 10      -- For player (left)
-BAT_MIN_X_OPP = (WINDOW_WIDTH / 2) + 10                 -- For opponent (right)
+-- Horizontal/vertical bat movement limits (player half only)
+BAT_MIN_X = 30
+BAT_MAX_X = (WINDOW_WIDTH / 2) - PADDLE_WIDTH - 10
 
--- Ball settings (now circle)
-BALL_SIZE = 10              -- This is the puck RADIUS!
+BAT_MIN_Y = (WINDOW_HEIGHT / 2) - 100
+BAT_MAX_Y = (WINDOW_HEIGHT / 2) + 100 - PADDLE_HEIGHT
+
+-- Ball (puck) settings (now circle)
+BALL_SIZE = 14              -- Puck radius
 BALL_SPEED_X = 240
 BALL_SPEED_Y = 120
 
--- Score limit
+-- 3D/projection constants (tweak for your taste)
+PROJ_S = 320
+PROJ_D = 650
+PROJ_CX = WINDOW_WIDTH / 2
+PROJ_CY = 0
+BAT_HEIGHT_3D = 40
+PUCK_HEIGHT_3D = 20
+
+-- Score
 WIN_SCORE = 10
 
--- Positioning
-PADDLE_OFFSET_X = 30        -- Initial paddle offset from side
-SCORE_OFFSET_Y = 40         -- Score display height
+-- Offsets
+PADDLE_OFFSET_X = BAT_MIN_X
+SCORE_OFFSET_Y = 40
 
--- Colors (RGB in [0,1])
+-- Grid
+GRID_X = 8
+GRID_Y = 3
+
+-- Colors
 COLOR_BG = {0, 0, 0}
 COLOR_FG = {1, 1, 1}
 
