@@ -1,29 +1,27 @@
--- constants.lua
--- All game constants in one place
+-- All constants in one place
 
-local C = {}
+-- Window dimensions
+WINDOW_WIDTH = 800
+WINDOW_HEIGHT = 600
 
-C.WINDOW_WIDTH = 640
-C.WINDOW_HEIGHT = 480
+-- Paddle settings
+PADDLE_WIDTH = 10
+PADDLE_HEIGHT = 60
+PADDLE_SPEED = 300
 
-C.FIELD_MARGIN = 32
+-- Ball settings
+BALL_SIZE = 10
+BALL_SPEED_X = 240
+BALL_SPEED_Y = 120
 
-C.PADDLE_WIDTH = 10
-C.PADDLE_HEIGHT = 60
-C.PADDLE_SPEED = 240
-C.PADDLE_INIT_Y = (C.WINDOW_HEIGHT - C.PADDLE_HEIGHT) / 2
-C.LEFT_X = C.FIELD_MARGIN
-C.RIGHT_X = C.WINDOW_WIDTH - C.FIELD_MARGIN - C.PADDLE_WIDTH
+-- Score limit
+WIN_SCORE = 10
 
-C.PUCK_SIZE = 10
-C.PUCK_SPEED = 200
+-- Positioning
+PADDLE_OFFSET_X = 30
+SCORE_OFFSET_Y = 40
 
-C.MAX_SCORE = 10
+-- Colors
+COLOR_BG = {0, 0, 0}
+COLOR_FG = {1, 1, 1}
 
-C.COLOR_BG = {0, 0, 0}    -- Black
-C.COLOR_FG = {1, 1, 1}    -- White
-
-C.DOTTED_SIZE = 10
-C.DOTTED_GAP = 10
-
-return C
