@@ -1,4 +1,4 @@
--- Paddle module: vertical + horizontal movement
+-- Paddle module with vertical + horizontal movement
 
 local Paddle = {}
 Paddle.__index = Paddle
@@ -15,29 +15,21 @@ function Paddle:create(x, y, isPlayer)
     return paddle
 end
 
+-- vdir: depth (table axis), hdir: width (screen horizontal)
 function Paddle:update(dt, vdir, hdir)
-    -- Vertical
+    -- Move along X (depth)
     if vdir ~= 0 then
-        self.vspeed = PADDLE_SPEED * vdir
-        self.y = math.max(0, math.min(WINDOW_HEIGHT - self.height, self.y + self.vspeed * dt))
-    else
-        self.vspeed = 0
+        self.x = math.max(BAT_MIN_X, math.min(BAT_MAX_X, self.x + vdir * PADDLE_SPEED * dt))
     end
-    -- Horizontal (до центра поля)
+    -- Move along Y (width)
     if hdir ~= 0 then
-        local minX = self.isPlayer and 0 or (WINDOW_WIDTH / 2 + 10)
-        local maxX = self.isPlayer and BAT_MAX_X or (WINDOW_WIDTH - PADDLE_WIDTH)
-        self.hspeed = PADDLE_HSPEED * hdir
-        self.x = math.max(minX, math.min(maxX, self.x + self.hspeed * dt))
-    else
-        self.hspeed = 0
+        self.y = math.max(BAT_MIN_Y, math.min(BAT_MAX_Y, self.y + hdir * PADDLE_SPEED * dt))
     end
 end
 
 function Paddle:draw()
-    love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
+    -- Perspective rendering in main.lua!
+    -- This method is now optional or could be used for debug.
 end
 
 return Paddle
-
-       
